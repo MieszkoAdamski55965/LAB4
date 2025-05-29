@@ -2,7 +2,7 @@
 function show_help {
   echo "--date, -d  Wyświetla dzisiejszą datę"
   echo "--logs [N], -1 [N]  Tworzy N (domyślnie 100) plików logx.txt"
-  echoo "--help, -h  Wyświetla wszystkie polecenia"
+  echo "--help, -h  Wyświetla wszystkie polecenia"
 }
 
 case "$1" in
