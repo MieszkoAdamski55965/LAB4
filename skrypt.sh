@@ -4,7 +4,7 @@ function show_help {
   echo "--logs [N], -1 [N]  Tworzy N (domyślnie 100) plików logx.txt"
   echo "--help, -h  Wyświetla wszystkie polecenia"
   echo "--init Klonuje repozytorium"
-  echor "--error [N], -e [N]  Tworzy N (domyślnie 100) katalogów errorx/errorx.txt"
+  echo "--error [N], -e [N]  Tworzy N (domyślnie 100) katalogów errorx/errorx.txt"
 }
 
 case "$1" in
