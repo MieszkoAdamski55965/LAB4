@@ -4,6 +4,7 @@ function show_help {
   echo "--logs [N], -1 [N]  Tworzy N (domyślnie 100) plików logx.txt"
   echo "--help, -h  Wyświetla wszystkie polecenia"
   echo "--init Klonuje repozytorium"
+  echor "--error [N], -e [N]  Tworzy N (domyślnie 100) katalogów errorx/errorx.txt"
 }
 
 case "$1" in
@@ -46,6 +47,21 @@ case "$1" in
       echo "Błąd: nie udało się sklonować repozytorium."
     fi
     ;;
+
+  --error|-e)
+    if [[ "$2" =~ ^[0-9]+$ ]]; then
+      ERR_COUNT=$2
+    else
+      ERR_COUNT=100
+    fi
+
+    for i in $(seq 1 $ERR_COUNT); do
+      DIRNAME="error${i}"
+      mkdir -p "$DIRNAME"
+      echo "Plik błędu nr $i" > "${DIRNAME}/error${i}.txt"
+    done
+    ;;
+ 
   *)
         echo "Błędna flaga. Użyj --help lub -h"
         ;;
