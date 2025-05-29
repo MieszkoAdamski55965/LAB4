@@ -3,6 +3,7 @@ function show_help {
   echo "--date, -d  Wyświetla dzisiejszą datę"
   echo "--logs [N], -1 [N]  Tworzy N (domyślnie 100) plików logx.txt"
   echo "--help, -h  Wyświetla wszystkie polecenia"
+  echo "--init Klonuje repozytorium"
 }
 
 case "$1" in
@@ -28,6 +29,22 @@ case "$1" in
     show_help
     ;;
 
+
+      --init)
+      echo "Klonuję repozytorium..."
+      REPO_URL="https://github.com/twoja-nazwa-uzytkownika/lab4-git.git"
+      TARGET_DIR="lab4-clone"
+      git clone "$REPO_URL" "$TARGET_DIR"
+
+      if [[$? -eq 0 ]]; then
+        echo "Dodaję $TARGET_DIR do PATH..."
+        export PATH="$PATH:$(pwd)/$TARGET_DIR"
+        echo 'export PATH="$PATH:'"$(pwd)/$TARGET_DIR"'"' >> ~/.bashrc
+        echo "Zmienna PATH zaktualizowana."
+      else
+        echo "Błąd: nie udało się sklonować repozytorium."
+      fi
+      ;;
   *)
         echo "Błędna flaga. Użyj --help lub -h"
         ;;
