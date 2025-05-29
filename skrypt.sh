@@ -30,21 +30,22 @@ case "$1" in
     ;;
 
 
-      --init)
-      echo "Klonuję repozytorium..."
-      REPO_URL="https://github.com/MieszkoAdamski55965/LAB4.git"
-      TARGET_DIR="LAB4_CLONE"
-      git clone "$REPO_URL" "$TARGET_DIR"
+  --init)
+    echo "Klonuję repozytorium..."
+    REPO_URL="https://github.com/MieszkoAdamski55965/LAB4.git"
+    TARGET_DIR="LAB4_CLONE"
+    git clone "$REPO_URL" "$TARGET_DIR"
 
-      if [[$? -eq 0 ]]; then
-        echo "Dodaję $TARGET_DIR do PATH"
-        export PATH="$PATH:$(pwd)/$TARGET_DIR"
-        echo 'export PATH="$PATH:'"$(pwd)/$TARGET_DIR"'"' >> ~/.bashrc
-        echo "Zmienna PATH zaktualizowana."
-      else
-        echo "Błąd: nie udało się sklonować repozytorium."
-      fi
-      ;;
+    if [[ $? -eq 0 ]]; then
+      echo "Dodaję $TARGET_DIR do PATH"
+      export PATH="$PATH:$(pwd)/$TARGET_DIR"
+      echo 'export PATH="$PATH:'"$(pwd)/$TARGET_DIR"'"' >> ~/.bashrc
+      echo "Zmienna PATH zaktualizowana."
+      
+    else
+      echo "Błąd: nie udało się sklonować repozytorium."
+    fi
+    ;;
   *)
         echo "Błędna flaga. Użyj --help lub -h"
         ;;
