@@ -32,12 +32,12 @@ case "$1" in
 
       --init)
       echo "Klonuję repozytorium..."
-      REPO_URL="https://github.com/twoja-nazwa-uzytkownika/lab4-git.git"
-      TARGET_DIR="lab4-clone"
+      REPO_URL="https://github.com/MieszkoAdamski55965/LAB4.git"
+      TARGET_DIR="LAB4_CLONE"
       git clone "$REPO_URL" "$TARGET_DIR"
 
       if [[$? -eq 0 ]]; then
-        echo "Dodaję $TARGET_DIR do PATH..."
+        echo "Dodaję $TARGET_DIR do PATH"
         export PATH="$PATH:$(pwd)/$TARGET_DIR"
         echo 'export PATH="$PATH:'"$(pwd)/$TARGET_DIR"'"' >> ~/.bashrc
         echo "Zmienna PATH zaktualizowana."
